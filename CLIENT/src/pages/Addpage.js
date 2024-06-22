@@ -18,7 +18,7 @@ const Addpage = () => {
   useEffect(() => {
     const fetchMaxId = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/getbgposts');
+        const response = await axios.get('https://blogify-vlng.onrender.com/getbgposts');
         if (response.data.length > 0) {
           const maxId = Math.max(...response.data.map(post => post.id));
           setMaxId(maxId);
@@ -36,7 +36,7 @@ const Addpage = () => {
     const newId = maxId + 1;
 
     try {
-      const response = await axios.post('http://localhost:5000/blogposts', {
+      const response = await axios.post('https://blogify-vlng.onrender.com/blogposts', {
         id: newId,
         title,
         author,

@@ -23,7 +23,7 @@ const Cardblock = () => {
 
   const handleRemoveBlogPost = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/blogposts/${id}`);
+      await axios.delete(`https://blogify-vlng.onrender.com/blogposts/${id}`);
       setBlogPosts(blogPosts.filter(post => post._id !== id));
     } catch (error) {
       console.error('Error removing blog post:', error);
@@ -32,7 +32,7 @@ const Cardblock = () => {
 
   const handleUpdateBlogPost = async (id) => {
     try {
-      const response = await axios.put(`http://localhost:5000/blogposts/${id}`, {
+      const response = await axios.put(`https://blogify-vlng.onrender.com/blogposts/${id}`, {
         title,
         author,
         content
@@ -52,9 +52,9 @@ const Cardblock = () => {
       try {
         let response;
         if (searchQuery.trim() !== '') {
-          response = await axios.get(`http://localhost:5000/getbgposts?query=${searchQuery}`);
+          response = await axios.get(`https://blogify-vlng.onrender.com/getbgposts?query=${searchQuery}`);
         } else {
-          response = await axios.get('http://localhost:5000/getbgposts');
+          response = await axios.get('https://blogify-vlng.onrender.com/getbgposts');
         }
         setBlogPosts(response.data);
       } catch (error) {
